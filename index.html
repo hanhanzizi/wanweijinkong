@@ -258,7 +258,7 @@
       font-size: clamp(2.4rem, 5.5vw, 4.2rem);
       font-weight: 900;
       color: var(--silver-dark);
-      line-height: 1.15;
+      line-height: 1.2;
       letter-spacing: 2px;
       margin-bottom: 20px;
     }
@@ -267,6 +267,18 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      display: block;
+    }
+    .hero-title .en-sub {
+      display: block;
+      font-family: var(--font-en);
+      font-size: clamp(1rem, 2vw, 1.55rem);
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      color: var(--silver);
+      -webkit-text-fill-color: var(--silver);
+      background: none;
+      margin-top: 4px;
     }
 
     .hero-slogan {
@@ -973,14 +985,17 @@
   <nav class="navbar" id="navbar">
     <div class="nav-logo-group">
       <div class="nav-logo-icon">
-        <!-- SVG Logo：V形飞鸟 + 握手 -->
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- 左翼：深蓝色 -->
-          <path d="M18 78 L18 42 Q18 28 32 20 L32 42 L48 68 Q50 72 46 74 Z" fill="#1565C0"/>
-          <!-- 右侧：握手/手指造型 + 灰色V -->
-          <path d="M48 68 L58 48 Q62 40 66 42 L62 54 L72 44 Q76 42 78 46 L70 56 L82 48 Q86 48 84 52 L68 68 Q58 78 48 74 Z" fill="#9E9E9E"/>
-          <!-- 高光细节 -->
-          <path d="M22 72 L22 46 Q22 36 30 28" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- SVG Logo：忠实还原 - 蓝色宽V翼 + 灰色手掌叉形 -->
+        <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 蓝色宽V翼：左侧大斜面向右下收窄，底部圆弧收口 -->
+          <path d="M8 10 L8 62 Q8 72 16 78 Q22 83 30 80 L54 44 L42 28 Q36 20 28 18 Z" fill="#1565C0"/>
+          <!-- 蓝V右侧补充面 -->
+          <path d="M54 44 L44 72 Q40 82 50 85 Q58 87 64 80 L68 68 Z" fill="#1A6FCC"/>
+          <!-- 灰色手掌主体：类似手掌+三指形，右侧向上展开 -->
+          <path d="M66 68 L62 48 Q60 36 68 32 Q76 28 78 38 L78 52 L82 38 Q83 28 90 30 Q97 32 95 44 L92 56 L96 44 Q98 36 104 38 Q110 42 108 52 L98 80 Q92 90 80 90 Q68 90 64 80 Z" fill="#8A9BA8"/>
+          <!-- 手掌高光分缝线（三指间槽） -->
+          <line x1="78" y1="52" x2="80" y2="86" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <line x1="92" y1="56" x2="91" y2="86" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
         </svg>
       </div>
       <div class="nav-logo-text">
@@ -994,6 +1009,7 @@
       <a href="#business" class="nav-link">业务架构</a>
       <a href="#culture" class="nav-link">企业文化</a>
       <a href="#team" class="nav-link">团队优势</a>
+      <a href="#cases" class="nav-link">实战案例</a>
       <a href="#cooperation" class="nav-link">合作模式</a>
       <a href="#contact" class="nav-link active">联系我们</a>
     </div>
@@ -1020,16 +1036,20 @@
       </div>
 
       <div class="hero-logo-main">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 78L18 42Q18 28 32 20L32 42L48 68Q50 72 46 74Z" fill="#1565C0"/>
-          <path d="M48 68L58 48Q62 40 66 42L62 54L72 44Q76 42 78 46L70 56L82 48Q86 48 84 52L68 68Q58 78 48 74Z" fill="#9E9E9E"/>
-          <path d="M22 72L22 46Q22 36 30 28" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 蓝色宽V翼 -->
+          <path d="M8 10 L8 62 Q8 72 16 78 Q22 83 30 80 L54 44 L42 28 Q36 20 28 18 Z" fill="#1565C0"/>
+          <path d="M54 44 L44 72 Q40 82 50 85 Q58 87 64 80 L68 68 Z" fill="#1A6FCC"/>
+          <!-- 灰色手掌主体 -->
+          <path d="M66 68 L62 48 Q60 36 68 32 Q76 28 78 38 L78 52 L82 38 Q83 28 90 30 Q97 32 95 44 L92 56 L96 44 Q98 36 104 38 Q110 42 108 52 L98 80 Q92 90 80 90 Q68 90 64 80 Z" fill="#8A9BA8"/>
+          <line x1="78" y1="52" x2="80" y2="86" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <line x1="92" y1="56" x2="91" y2="86" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
         </svg>
       </div>
 
       <h1 class="hero-title">
-        <span class="highlight">万维金控</span><br>
-        VANWIJ CAPITAL
+        <span class="highlight">万维金控</span>
+        <span class="en-sub">VANWIJ CAPITAL</span>
       </h1>
 
       <p class="hero-slogan">让资产找到它的价值</p>
@@ -1279,6 +1299,102 @@
     </div>
   </section>
 
+  <!-- ========== 实战案例 ========== -->
+  <section class="section" id="cases" style="background:#f8fbff;">
+    <div class="section-header fade-up">
+      <span class="section-tag">Cases</span>
+      <h2 class="section-title">实战案例</h2>
+      <p class="section-subtitle">系统性操盘 · 不只卖出去，更要保住价值</p>
+    </div>
+
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px;">
+
+      <!-- 案例1：华艺入云溪 -->
+      <div class="fade-up" style="background:white;border-radius:24px;border:1px solid rgba(0,0,0,0.06);overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+        <div style="background:linear-gradient(145deg,#0D3B77,#1565C0,#1E88E5);padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">住宅</span>
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">漳州</span>
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">系统性操盘</span>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:3rem;font-weight:800;color:white;line-height:1;">15<span style="font-size:20px">亿元</span></div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:4px;">总货值 · 1518套住宅 + 1423个车位</div>
+          </div>
+        </div>
+        <div style="padding:36px 40px;">
+          <h3 style="font-size:1.6rem;font-weight:800;color:#424242;margin-bottom:6px;">漳州华艺入云溪</h3>
+          <div style="font-size:0.875rem;color:#757575;margin-bottom:22px;display:flex;gap:20px;flex-wrap:wrap;">
+            <span>📅 2023年底进场</span>
+            <span>🤝 全案包干（销售+售后+企划+物业）</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+            <div style="padding:14px 16px;border-radius:10px;background:rgba(245,158,11,0.06);border-left:3px solid #F59E0B;">
+              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#F59E0B;margin-bottom:6px;">⚠ 核心挑战</h5>
+              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">10年老盘标签严重，3年仅售18套。社区品质感缺失，品牌认知度低，客户信心不足。</p>
+            </div>
+            <div style="padding:14px 16px;border-radius:10px;background:rgba(21,101,192,0.05);border-left:3px solid #1565C0;">
+              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1565C0;margin-bottom:6px;">💡 系统性操盘</h5>
+              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">底盘提升 + 物业整体更换 + 样板间打造 + 团队重塑 + 体系化价格梳理，全链路系统性介入。</p>
+            </div>
+          </div>
+          <!-- 差异化亮点 -->
+          <div style="padding:14px 16px;border-radius:10px;background:rgba(0,168,107,0.06);border-left:3px solid #00A86B;margin-bottom:18px;">
+            <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#00A86B;margin-bottom:8px;">✅ 核心差异化成果</h5>
+            <p style="font-size:0.875rem;color:#424242;line-height:1.7;">在整体市场逆势下，通过系统性操盘逻辑的介入，<strong>全程没有出现价格折损</strong>——真正实现了<strong>保价销售</strong>。连续6个月蝉联漳州全市前三，2024年单年销售305套（约3亿），42个在售项目中排名TOP5，同比增长超1690%。</p>
+          </div>
+          <div style="display:flex;gap:16px;padding-top:16px;border-top:1px solid #ECEFF1;">
+            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">305套</span><span style="font-size:11px;color:#757575;">/ 年销量</span></div>
+            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">TOP5</span><span style="font-size:11px;color:#757575;">/ 全市排名</span></div>
+            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">保价</span><span style="font-size:11px;color:#757575;">/ 零折损销售</span></div>
+            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">~3亿</span><span style="font-size:11px;color:#757575;">/ 销售金额</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 案例2：安居水晶海岸壹号 -->
+      <div class="fade-up" style="background:white;border-radius:24px;border:1px solid rgba(0,0,0,0.06);overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
+        <div style="background:linear-gradient(145deg,#134e5e,#2c7873,#52c5a1);padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">商铺</span>
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">先招商再销售</span>
+            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">配套同步引入</span>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:2.2rem;font-weight:800;color:white;line-height:1.1;">水晶海岸<br><span style="font-size:1.2rem;">壹号商铺</span></div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:6px;">合作安居 · 商业资产激活</div>
+          </div>
+        </div>
+        <div style="padding:36px 40px;">
+          <h3 style="font-size:1.6rem;font-weight:800;color:#424242;margin-bottom:6px;">安居·水晶海岸壹号商铺</h3>
+          <div style="font-size:0.875rem;color:#757575;margin-bottom:22px;display:flex;gap:20px;flex-wrap:wrap;">
+            <span>🏪 商业资产激活项目</span>
+            <span>🤝 资产并购·先招商后去化模式</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+            <div style="padding:14px 16px;border-radius:10px;background:rgba(245,158,11,0.06);border-left:3px solid #F59E0B;">
+              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#F59E0B;margin-bottom:6px;">⚠ 项目背景</h5>
+              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">商铺处于去化困局，传统包销模式难以为继，业态定位模糊，买家对商铺价值缺乏信心。</p>
+            </div>
+            <div style="padding:14px 16px;border-radius:10px;background:rgba(21,101,192,0.05);border-left:3px solid #1565C0;">
+              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1565C0;margin-bottom:6px;">💡 核心差异化</h5>
+              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">不同于传统包销直接推售，我们先完成招商再推动销售，让配套与销售同步落地。</p>
+            </div>
+          </div>
+          <!-- 差异化亮点 -->
+          <div style="padding:14px 16px;border-radius:10px;background:rgba(0,168,107,0.06);border-left:3px solid #00A86B;margin-bottom:18px;">
+            <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#00A86B;margin-bottom:8px;">✅ 先招商·配套同步引入</h5>
+            <p style="font-size:0.875rem;color:#424242;line-height:1.7;">联动引进<strong>糖巢、安德鲁森、方田超市</strong>等品质配套品牌先行入驻，以真实的商业配套证明商铺价值，再进入正式销售周期——<strong>让买家买的不只是铺位，而是已经在运营的生活配套</strong>。</p>
+          </div>
+          <div style="padding:12px 16px;border-radius:10px;background:#f8fbff;border:1px solid rgba(21,101,192,0.1);">
+            <p style="font-size:0.85rem;color:#555;line-height:1.7;"><strong>与传统包销的本质区别：</strong>传统模式是"先签约再想办法招商"，我们的模式是"先把配套做实再销售"——甲方立项、住宅先受益，商铺自然随之增值。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ========== 合作模式 ========== -->
   <section class="section" id="cooperation">
     <div class="section-header fade-up">
@@ -1355,10 +1471,12 @@
   <footer class="section" id="contact">
     <div class="contact-container">
       <div class="contact-logo-area fade-up">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 78L18 42Q18 28 32 20L32 42L48 68Q50 72 46 74Z" fill="white"/>
-          <path d="M48 68L58 48Q62 40 66 42L62 54L72 44Q76 42 78 46L70 56L82 48Q86 48 84 52L68 68Q58 78 48 74Z" fill="rgba(255,255,255,0.4)"/>
-          <path d="M22 72L22 46Q22 36 30 28" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 10 L8 62 Q8 72 16 78 Q22 83 30 80 L54 44 L42 28 Q36 20 28 18 Z" fill="white"/>
+          <path d="M54 44 L44 72 Q40 82 50 85 Q58 87 64 80 L68 68 Z" fill="rgba(255,255,255,0.85)"/>
+          <path d="M66 68 L62 48 Q60 36 68 32 Q76 28 78 38 L78 52 L82 38 Q83 28 90 30 Q97 32 95 44 L92 56 L96 44 Q98 36 104 38 Q110 42 108 52 L98 80 Q92 90 80 90 Q68 90 64 80 Z" fill="rgba(255,255,255,0.4)"/>
+          <line x1="78" y1="52" x2="80" y2="86" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="92" y1="56" x2="91" y2="86" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </div>
       <h2 class="contact-brand-name fade-up">万维金控</h2>
