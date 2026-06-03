@@ -953,6 +953,144 @@
     }
 
     /* ========================================
+       实战案例 - 桌面端布局（CSS Class）
+    ======================================== */
+    .cases-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .case-card {
+      background: white;
+      border-radius: 24px;
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .case-card-left {
+      background: linear-gradient(145deg,#0D3B77,#1565C0,#1E88E5);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .case-tag {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.18);
+      color: white;
+      letter-spacing: 0.5px;
+    }
+    .case-amount { text-align: left; }
+    .amount-num {
+      font-family: 'Inter',sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+    .amount-unit { font-size: 20px; }
+    .amount-desc {
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+    }
+    .case-card-right { padding: 36px 40px; }
+    .case-card-right h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #424242;
+      margin-bottom: 6px;
+    }
+    .case-meta {
+      font-size: 0.875rem;
+      color: #757575;
+      margin-bottom: 22px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .case-info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .case-info-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border-left: 3px solid #F59E0B;
+    }
+    .case-info-item.blue { background: rgba(21,101,192,0.05); border-color: #1565C0; }
+    .case-info-item.green { background: rgba(0,168,107,0.06); border-color: #00A86B; }
+    .case-info-item h5 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+    .case-info-item.orange h5 { color: #F59E0B; }
+    .case-info-item.blue h5 { color: #1565C0; }
+    .case-info-item.green h5 { color: #00A86B; }
+    .case-info-item p {
+      font-size: 0.85rem;
+      color: #424242;
+      line-height: 1.65;
+    }
+    .case-highlight {
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(0,168,107,0.06);
+      border-left: 3px solid #00A86B;
+      margin-bottom: 18px;
+    }
+    .case-highlight h5 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #00A86B;
+      margin-bottom: 8px;
+    }
+    .case-highlight p {
+      font-size: 0.875rem;
+      color: #424242;
+      line-height: 1.7;
+    }
+    .case-stats {
+      display: flex;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #ECEFF1;
+      flex-wrap: wrap;
+    }
+    .case-stat-val {
+      font-family: 'Inter',sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #00A86B;
+    }
+    .case-stat-lbl { font-size: 11px; color: #757575; }
+
+    /* 案例2 绿色主题覆盖 */
+    .case-card-green .case-card-left {
+      background: linear-gradient(145deg,#134e5e,#2c7873,#52c5a1);
+    }
+
+    /* ========================================
        响应式
     ======================================== */
     @media (max-width: 1024px) {
@@ -962,46 +1100,44 @@
       .culture-grid { grid-template-columns: repeat(3, 1fr); }
       .team-highlights { grid-template-columns: repeat(2, 1fr); }
       .coop-models { grid-template-columns: repeat(2, 1fr); }
-      .case-card { grid-template-columns: 1fr; }
+      .case-card { grid-template-columns: 260px 1fr; }
       .case-visual { min-height: 220px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+    }
 
-      /* 实战案例 - 平板适配 */
-      #cases [style*="grid-template-columns"] {
-        grid-template-columns: 240px 1fr !important;
-      }
-      #cases [style*="padding:36px 40px"] {
-        padding: 24px 20px !important;
-      }
-      #cases [style*="grid-template-columns:1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-      }
-    }
+    /* 实战案例 - 平板及手机：切换为竖向卡片 */
     @media (max-width: 768px) {
-      /* 实战案例 - 手机竖版卡片 */
-      #cases > div > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
+      .cases-wrapper { gap: 20px; max-width: 100%; }
+      .case-card {
+        grid-template-columns: 1fr;
+        border-radius: 18px;
       }
-      #cases [style*="padding:36px"] {
-        padding: 24px 18px !important;
+      .case-card-left {
+        padding: 22px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
-      #cases h3 {
-        font-size: 1.25rem !important;
-      }
-      #cases [style*="grid-template-columns:1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-      }
-      #cases [style*="display:flex;gap:16px"] {
-        flex-wrap: wrap;
-        gap: 8px 16px !important;
-      }
-      .hero-stats {
-        flex-wrap: wrap;
-        gap: 20px 32px;
-      }
+      .case-tags { margin-bottom: 0; flex-shrink: 1; }
+      .case-amount { text-align: right; }
+      .amount-num { font-size: 2rem; }
+      .amount-unit { font-size: 17px; }
+      .case-card-right { padding: 22px 18px; }
+      .case-card-right h3 { font-size: 1.25rem; margin-bottom: 4px; }
+      .case-meta { margin-bottom: 14px; font-size: 0.82rem; gap: 10px; flex-wrap: wrap; }
+      .case-info-row { grid-template-columns: 1fr; gap: 10px; margin-bottom: 12px; }
+      .case-info-item { padding: 10px 14px; border-radius: 10px; }
+      .case-info-item h5 { font-size: 10px; margin-bottom: 3px; }
+      .case-info-item p { font-size: 0.82rem; line-height: 1.55; }
+      .case-highlight { padding: 10px 14px; margin-bottom: 12px; }
+      .case-highlight h5 { font-size: 10px; margin-bottom: 4px; }
+      .case-highlight p { font-size: 0.82rem; line-height: 1.6; }
+      .case-stats { flex-wrap: wrap; gap: 8px 16px; padding-top: 10px; }
+      .case-stat-val { font-size: 0.95rem; }
+      .case-stat-lbl { font-size: 0.72rem; }
     }
+
     @media (max-width: 640px) {
       .section { padding: var(--l) 16px; }
       .navbar { padding: 0 16px; }
@@ -1016,50 +1152,22 @@
       .btn { width: 100%; justify-content: center; }
       .biz-grid { grid-template-columns: 1fr; }
 
-      /* 实战案例 - 小屏手机终极适配 */
-      #cases > div > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        border-radius: 16px !important;
+      .cases-wrapper { gap: 16px; }
+      .case-card { border-radius: 14px; }
+      .case-card-left {
+        padding: 18px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
-      #cases > div > div > div:first-child {
-        padding: 20px !important;
-      }
-      #cases > div > div > div:last-child {
-        padding: 20px 16px !important;
-      }
-      #cases [style*="padding:14px 16px"] {
-        padding: 10px 14px !important;
-      }
-      #cases h3 {
-        font-size: 1.15rem !important;
-        margin-bottom: 8px !important;
-      }
-      #cases [style*="font-size:0.875rem"],
-      #cases [style*="font-size:0.85rem"] {
-        font-size: 0.82rem !important;
-      }
-      #cases [style*="display:grid;grid-template-columns:1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-      }
-      #cases [style*="display:flex;gap:16px;padding-top:16px"] {
-        flex-wrap: wrap;
-        gap: 6px 12px !important;
-        padding-top: 12px !important;
-        font-size: 0.78rem !important;
-      }
-      .hero-stats {
-        flex-wrap: wrap;
-        gap: 16px 24px;
-        padding: 16px 20px;
-        margin-top: 24px;
-      }
-      .hero-stat-num {
-        font-size: 1.5rem !important;
-      }
-      .hero-logo-main {
-        width: 70px;
-        height: 70px;
-      }
+      .case-amount { text-align: left; }
+      .amount-num { font-size: 1.75rem; }
+      .case-card-right { padding: 16px 14px; }
+      .case-card-right h3 { font-size: 1.1rem; }
+      .case-info-item, .case-highlight { padding: 10px 12px; border-radius: 8px; }
+      .hero-stats { flex-wrap: wrap; gap: 14px 20px; padding: 14px 18px; margin-top: 20px; }
+      .hero-stat-num { font-size: 1.35rem; }
+      .hero-logo-main { width: 64px; height: 64px; }
     }
   </style>
 </head>
@@ -1365,93 +1473,91 @@
   </section>
 
   <!-- ========== 实战案例 ========== -->
-  <section class="section" id="cases" style="background:#f8fbff;">
+  <section class="section" id="cases">
     <div class="section-header fade-up">
       <span class="section-tag">Cases</span>
       <h2 class="section-title">实战案例</h2>
-      <p class="section-subtitle">系统性操盘 · 不只卖出去，更要保住价值</p>
+      <p class="section-subtitle">系统性操盘 &middot; 不只卖出去，更要保住价值</p>
     </div>
 
-    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px;">
+    <div class="cases-wrapper">
 
       <!-- 案例1：华艺入云溪 -->
-      <div class="fade-up" style="background:white;border-radius:24px;border:1px solid rgba(0,0,0,0.06);overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
-        <div style="background:linear-gradient(145deg,#0D3B77,#1565C0,#1E88E5);padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">住宅</span>
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">漳州</span>
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">系统性操盘</span>
+      <div class="case-card fade-up">
+        <div class="case-card-left">
+          <div class="case-tags">
+            <span class="case-tag">住宅</span>
+            <span class="case-tag">漳州</span>
+            <span class="case-tag">系统性操盘</span>
           </div>
-          <div>
-            <div style="font-family:'Inter',sans-serif;font-size:3rem;font-weight:800;color:white;line-height:1;">15<span style="font-size:20px">亿元</span></div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:4px;">总货值 · 1518套住宅 + 1423个车位</div>
+          <div class="case-amount">
+            <div class="amount-num">15<span class="amount-unit">亿元</span></div>
+            <div class="amount-desc">总货值 &middot; 1518套住宅 + 1423个车位</div>
           </div>
         </div>
-        <div style="padding:36px 40px;">
-          <h3 style="font-size:1.6rem;font-weight:800;color:#424242;margin-bottom:6px;">漳州华艺入云溪</h3>
-          <div style="font-size:0.875rem;color:#757575;margin-bottom:22px;display:flex;gap:20px;flex-wrap:wrap;">
-            <span>📅 2023年底进场</span>
-            <span>🤝 全案包干（销售+售后+企划+物业）</span>
+        <div class="case-card-right">
+          <h3>漳州华艺入云溪</h3>
+          <div class="case-meta">
+            <span>&#128197; 2023年底进场</span>
+            <span>&#129309; 全案包干（销售+售后+企划+物业）</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
-            <div style="padding:14px 16px;border-radius:10px;background:rgba(245,158,11,0.06);border-left:3px solid #F59E0B;">
-              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#F59E0B;margin-bottom:6px;">⚠ 核心挑战</h5>
-              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">10年老盘标签严重，3年仅售18套。社区品质感缺失，品牌认知度低，客户信心不足。</p>
+          <div class="case-info-row">
+            <div class="case-info-item orange">
+              <h5>&#9888; 核心挑战</h5>
+              <p>10年老盘标签严重，3年仅售18套。社区品质感缺失，品牌认知度低，客户信心不足。</p>
             </div>
-            <div style="padding:14px 16px;border-radius:10px;background:rgba(21,101,192,0.05);border-left:3px solid #1565C0;">
-              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1565C0;margin-bottom:6px;">💡 系统性操盘</h5>
-              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">底盘提升 + 物业整体更换 + 样板间打造 + 团队重塑 + 体系化价格梳理，全链路系统性介入。</p>
+            <div class="case-info-item blue">
+              <h5>&#128161; 系统性操盘</h5>
+              <p>底盘提升 + 物业整体更换 + 样板间打造 + 团队重塑 + 体系化价格梳理，全链路系统性介入。</p>
             </div>
           </div>
-          <!-- 差异化亮点 -->
-          <div style="padding:14px 16px;border-radius:10px;background:rgba(0,168,107,0.06);border-left:3px solid #00A86B;margin-bottom:18px;">
-            <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#00A86B;margin-bottom:8px;">✅ 核心差异化成果</h5>
-            <p style="font-size:0.875rem;color:#424242;line-height:1.7;">在整体市场逆势下，通过系统性操盘逻辑的介入，<strong>全程没有出现价格折损</strong>——真正实现了<strong>保价销售</strong>。连续6个月蝉联漳州全市前三，2024年单年销售305套（约3亿），42个在售项目中排名TOP5，同比增长超1690%。</p>
+          <div class="case-highlight">
+            <h5>&#9989; 核心差异化成果</h5>
+            <p>在整体市场逆势下，通过系统性操盘逻辑的介入，<strong>全程没有出现价格折损</strong>——真正实现了<strong>保价销售</strong>。连续6个月蝉联漳州全市前三，2024年单年销售305套（约3亿），42个在售项目中排名TOP5，同比增长超1690%。</p>
           </div>
-          <div style="display:flex;gap:16px;padding-top:16px;border-top:1px solid #ECEFF1;">
-            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">305套</span><span style="font-size:11px;color:#757575;">/ 年销量</span></div>
-            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">TOP5</span><span style="font-size:11px;color:#757575;">/ 全市排名</span></div>
-            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">保价</span><span style="font-size:11px;color:#757575;">/ 零折损销售</span></div>
-            <div style="display:flex;align-items:baseline;gap:4px;"><span style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:800;color:#00A86B;">~3亿</span><span style="font-size:11px;color:#757575;">/ 销售金额</span></div>
+          <div class="case-stats">
+            <div><span class="case-stat-val">305套</span><span class="case-stat-lbl"> / 年销量</span></div>
+            <div><span class="case-stat-val">TOP5</span><span class="case-stat-lbl"> / 全市排名</span></div>
+            <div><span class="case-stat-val">保价</span><span class="case-stat-lbl"> / 零折损销售</span></div>
+            <div><span class="case-stat-val">~3亿</span><span class="case-stat-lbl"> / 销售金额</span></div>
           </div>
         </div>
       </div>
 
       <!-- 案例2：安居水晶海岸壹号 -->
-      <div class="fade-up" style="background:white;border-radius:24px;border:1px solid rgba(0,0,0,0.06);overflow:hidden;display:grid;grid-template-columns:300px 1fr;box-shadow:0 4px 20px rgba(0,0,0,0.07);">
-        <div style="background:linear-gradient(145deg,#134e5e,#2c7873,#52c5a1);padding:36px;display:flex;flex-direction:column;justify-content:space-between;">
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">商铺</span>
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">先招商再销售</span>
-            <span style="font-size:10px;font-weight:700;padding:4px 12px;border-radius:9999px;background:rgba(255,255,255,0.18);color:white;letter-spacing:0.5px;">配套同步引入</span>
+      <div class="case-card case-card-green fade-up">
+        <div class="case-card-left">
+          <div class="case-tags">
+            <span class="case-tag">商铺</span>
+            <span class="case-tag">先招商再销售</span>
+            <span class="case-tag">配套同步引入</span>
           </div>
-          <div>
-            <div style="font-family:'Inter',sans-serif;font-size:2.2rem;font-weight:800;color:white;line-height:1.1;">水晶海岸<br><span style="font-size:1.2rem;">壹号商铺</span></div>
-            <div style="font-size:11px;color:rgba(255,255,255,0.65);margin-top:6px;">合作安居 · 商业资产激活</div>
+          <div class="case-amount">
+            <div class="amount-num" style="font-size:2.2rem;line-height:1.1;">水晶海岸<br><span style="font-size:1.2rem;">壹号商铺</span></div>
+            <div class="amount-desc">合作安居 &middot; 商业资产激活</div>
           </div>
         </div>
-        <div style="padding:36px 40px;">
-          <h3 style="font-size:1.6rem;font-weight:800;color:#424242;margin-bottom:6px;">安居·水晶海岸壹号商铺</h3>
-          <div style="font-size:0.875rem;color:#757575;margin-bottom:22px;display:flex;gap:20px;flex-wrap:wrap;">
-            <span>🏪 商业资产激活项目</span>
-            <span>🤝 资产并购·先招商后去化模式</span>
+        <div class="case-card-right">
+          <h3>安居&middot;水晶海岸壹号商铺</h3>
+          <div class="case-meta">
+            <span>&#127974; 商业资产激活项目</span>
+            <span>&#129309; 资产并购&middot;先招商后去化模式</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
-            <div style="padding:14px 16px;border-radius:10px;background:rgba(245,158,11,0.06);border-left:3px solid #F59E0B;">
-              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#F59E0B;margin-bottom:6px;">⚠ 项目背景</h5>
-              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">商铺处于去化困局，传统包销模式难以为继，业态定位模糊，买家对商铺价值缺乏信心。</p>
+          <div class="case-info-row">
+            <div class="case-info-item orange">
+              <h5>&#9888; 项目背景</h5>
+              <p>商铺处于去化困局，传统包销模式难以为继，业态定位模糊，买家对商铺价值缺乏信心。</p>
             </div>
-            <div style="padding:14px 16px;border-radius:10px;background:rgba(21,101,192,0.05);border-left:3px solid #1565C0;">
-              <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1565C0;margin-bottom:6px;">💡 核心差异化</h5>
-              <p style="font-size:0.85rem;color:#424242;line-height:1.65;">不同于传统包销直接推售，我们先完成招商再推动销售，让配套与销售同步落地。</p>
+            <div class="case-info-item blue">
+              <h5>&#128161; 核心差异化</h5>
+              <p>不同于传统包销直接推售，我们先完成招商再推动销售，让配套与销售同步落地。</p>
             </div>
           </div>
-          <!-- 差异化亮点 -->
-          <div style="padding:14px 16px;border-radius:10px;background:rgba(0,168,107,0.06);border-left:3px solid #00A86B;margin-bottom:18px;">
-            <h5 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#00A86B;margin-bottom:8px;">✅ 先招商·配套同步引入</h5>
-            <p style="font-size:0.875rem;color:#424242;line-height:1.7;">联动引进<strong>糖巢、安德鲁森、方田超市</strong>等品质配套品牌先行入驻，以真实的商业配套证明商铺价值，再进入正式销售周期——<strong>让买家买的不只是铺位，而是已经在运营的生活配套</strong>。</p>
+          <div class="case-highlight">
+            <h5>&#9989; 先招商&middot;配套同步引入</h5>
+            <p>联动引进<strong>糖巢、安德鲁森、方田超市</strong>等品质配套品牌先行入驻，以真实的商业配套证明商铺价值，再进入正式销售周期——<strong>让买家买的不只是铺位，而是已经在运营的生活配套</strong>。</p>
           </div>
-          <div style="padding:12px 16px;border-radius:10px;background:#f8fbff;border:1px solid rgba(21,101,192,0.1);">
+          <div class="case-info-item green" style="padding:12px 16px;">
             <p style="font-size:0.85rem;color:#555;line-height:1.7;"><strong>与传统包销的本质区别：</strong>传统模式是"先签约再想办法招商"，我们的模式是"先把配套做实再销售"——甲方立项、住宅先受益，商铺自然随之增值。</p>
           </div>
         </div>
