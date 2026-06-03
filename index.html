@@ -964,14 +964,48 @@
       .coop-models { grid-template-columns: repeat(2, 1fr); }
       .case-card { grid-template-columns: 1fr; }
       .case-visual { min-height: 220px; }
-      .hero-stats { display: none; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
+
+      /* 实战案例 - 平板适配 */
+      #cases [style*="grid-template-columns"] {
+        grid-template-columns: 240px 1fr !important;
+      }
+      #cases [style*="padding:36px 40px"] {
+        padding: 24px 20px !important;
+      }
+      #cases [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media (max-width: 768px) {
+      /* 实战案例 - 手机竖版卡片 */
+      #cases > div > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+      #cases [style*="padding:36px"] {
+        padding: 24px 18px !important;
+      }
+      #cases h3 {
+        font-size: 1.25rem !important;
+      }
+      #cases [style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      #cases [style*="display:flex;gap:16px"] {
+        flex-wrap: wrap;
+        gap: 8px 16px !important;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 20px 32px;
+      }
     }
     @media (max-width: 640px) {
-      .section { padding: var(--l) 20px; }
-      .navbar { padding: 0 20px; }
-      .hero { padding: 100px 20px 60px; }
+      .section { padding: var(--l) 16px; }
+      .navbar { padding: 0 16px; }
+      .hero { padding: 100px 16px 60px; }
       .culture-grid { grid-template-columns: 1fr 1fr; }
       .team-highlights { grid-template-columns: 1fr; }
       .coop-models { grid-template-columns: 1fr; }
@@ -981,6 +1015,51 @@
       .hero-actions { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
       .biz-grid { grid-template-columns: 1fr; }
+
+      /* 实战案例 - 小屏手机终极适配 */
+      #cases > div > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        border-radius: 16px !important;
+      }
+      #cases > div > div > div:first-child {
+        padding: 20px !important;
+      }
+      #cases > div > div > div:last-child {
+        padding: 20px 16px !important;
+      }
+      #cases [style*="padding:14px 16px"] {
+        padding: 10px 14px !important;
+      }
+      #cases h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 8px !important;
+      }
+      #cases [style*="font-size:0.875rem"],
+      #cases [style*="font-size:0.85rem"] {
+        font-size: 0.82rem !important;
+      }
+      #cases [style*="display:grid;grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      #cases [style*="display:flex;gap:16px;padding-top:16px"] {
+        flex-wrap: wrap;
+        gap: 6px 12px !important;
+        padding-top: 12px !important;
+        font-size: 0.78rem !important;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        padding: 16px 20px;
+        margin-top: 24px;
+      }
+      .hero-stat-num {
+        font-size: 1.5rem !important;
+      }
+      .hero-logo-main {
+        width: 70px;
+        height: 70px;
+      }
     }
   </style>
 </head>
