@@ -340,12 +340,17 @@
 
     /* Hero底部数据条 */
     .hero-stats {
-      position: absolute;
-      bottom: 60px;
-      left: 50%; transform: translateX(-50%);
       display: flex;
+      justify-content: center;
       gap: 48px;
-      z-index: 2;
+      margin-top: 40px;
+      padding: 24px 36px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--r-lg);
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
     .hero-stat {
       text-align: center;
@@ -1044,25 +1049,25 @@
         <a href="#business" class="btn btn-primary">了解业务架构 →</a>
         <a href="#cooperation" class="btn btn-outline">了解合作模式</a>
       </div>
-    </div>
 
-    <!-- 底部数据条 -->
-    <div class="hero-stats fade-up">
-      <div class="hero-stat">
-        <div class="hero-stat-num">16+</div>
-        <div class="hero-stat-label">操盘项目</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">100亿+</div>
-        <div class="hero-stat-label">累计货值</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">100+</div>
-        <div class="hero-stat-label">专业团队</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">7年+</div>
-        <div class="hero-stat-label">深耕海西</div>
+      <!-- 底部数据条 -->
+      <div class="hero-stats fade-up">
+        <div class="hero-stat">
+          <div class="hero-stat-num">16+</div>
+          <div class="hero-stat-label">操盘项目</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100亿+</div>
+          <div class="hero-stat-label">累计货值</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100+</div>
+          <div class="hero-stat-label">专业团队</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">7年+</div>
+          <div class="hero-stat-label">深耕海西</div>
+        </div>
       </div>
     </div>
   </section>
