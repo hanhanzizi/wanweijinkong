@@ -1211,6 +1211,9 @@
         margin: 0;
       }
 
+      /* 打印时隐藏导航栏和页脚 */
+      nav, .nav, footer { display: none !important; }
+
       /* 全局背景色保持 */
       body, body * {
         -webkit-print-color-adjust: exact !important;
@@ -1262,14 +1265,40 @@
         page-break-inside: avoid !important;
         page-break-before: auto !important;
         margin: 14px 0 8px !important;
+        width: 100% !important;
+        text-align: center;
+      }
+      /* 全员合影图放大至与下方网格同宽 */
+      #about .fade-up[style*="margin:40px"] img {
+        width: 100% !important;
+        max-height: 170px !important;
+        object-fit: cover !important;
+        border-radius: 6px;
       }
       #about .fade-up[style*="margin-top:48px"] {
         page-break-inside: avoid !important;
         page-break-before: auto !important;
         margin: 8px 0 0 !important;
+        width: 100% !important;
       }
       .team-photo-grid {
         page-break-inside: avoid !important;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .team-photo-item {
+        text-align: center;
+      }
+      .team-photo-item img {
+        width: 100%;
+        max-height: 110px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .team-photo-label {
+        font-size: 0.65rem;
+        margin-top: 2px;
       }
 
       /* 关于我们 文本内容放大 */
@@ -1303,25 +1332,6 @@
       }
       #about .about-card-desc {
         font-size: 0.68rem;
-      }
-
-      /* 团队照片 — 适当压缩以容纳全部内容在同一页 */
-      #about .fade-up[style*="margin:40px"] img,
-      #about .fade-up[style*="margin-top:48px"] img {
-        max-height: 130px;
-        object-fit: contain;
-      }
-      .team-photo-item img {
-        max-height: 110px;
-        object-fit: contain;
-      }
-      .team-photo-label {
-        font-size: 0.65rem;
-        margin-top: 2px;
-      }
-      .team-photo-grid {
-        page-break-inside: avoid !important;
-        gap: 8px;
       }
 
       /* ========== 企业文化 ========== */
@@ -1372,6 +1382,7 @@
       /* ========== 实战案例 — 标题独立页面 ========== */
       #cases {
         page-break-before: always;
+        padding: 0 !important;
       }
 
       #cases .section-header {
@@ -1383,42 +1394,24 @@
         align-items: center;
         justify-content: center;
         background: linear-gradient(155deg, #0A3A87 0%, #0D47A1 20%, #1565C0 50%, #1E88E5 80%, #42A5F5 100%) !important;
+        margin: 0;
+        padding: 80px 60px !important;
+        width: 100%;
+        max-width: none !important;
         position: relative;
         overflow: hidden;
-        margin: 0 -48px;
-        padding: 80px 60px !important;
-        max-width: none !important;
+        page-break-after: always;
       }
 
-      /* 第一个case-card在新页开始，避免标题页后空白 */
-      .cases-wrapper .case-card:first-child {
-        page-break-before: always;
-      }
-
-      /* 装饰圆形光晕 */
-      #cases .section-header::before {
-        content: '';
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-        top: -200px;
-        right: -150px;
-        pointer-events: none;
-      }
-
-      /* 装饰底部光晕 */
+      /* 打印时隐藏装饰光晕，避免溢出分页 */
+      #cases .section-header::before,
       #cases .section-header::after {
-        content: '';
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
-        bottom: -100px;
-        left: -80px;
-        pointer-events: none;
+        display: none !important;
+      }
+
+      /* 打印时隐藏水印（避免干扰） */
+      #cases .section-header .case-watermark {
+        display: none !important;
       }
 
       #cases .section-tag {
