@@ -1247,55 +1247,72 @@
         padding: 40px 48px !important;
       }
 
-      /* ========== 关于我们（含团队照片） ========== */
+      /* ========== 关于我们（含团队照片）— 单页填满 ========== */
       #about {
         page-break-before: always;
-        padding: 30px 48px !important;
+        page-break-after: always;
+        min-height: 100vh;
+        padding: 28px 48px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
       }
 
-      /* 团队合照不跨页 */
+      /* 团队照片 — 全部融合在同一页内，不单独分页 */
       #about .fade-up[style*="margin:40px"] {
         page-break-inside: avoid !important;
-        page-break-before: always !important;
-        margin: 10px 0 !important;
+        page-break-before: auto !important;
+        margin: 14px 0 8px !important;
       }
       #about .fade-up[style*="margin-top:48px"] {
         page-break-inside: avoid !important;
-        page-break-before: always !important;
-        margin: 10px 0 !important;
+        page-break-before: auto !important;
+        margin: 8px 0 0 !important;
       }
       .team-photo-grid {
         page-break-inside: avoid !important;
       }
 
-      /* 关于我们 文本内容压缩 */
-      #about .about-grid {
-        gap: 30px;
-      }
-      #about .about-content p {
-        font-size: 0.8rem;
-        margin-bottom: 10px;
-        line-height: 1.6;
-      }
-      #about .about-card {
-        padding: 14px;
-      }
-      #about .about-card-num {
-        font-size: 2rem;
-      }
+      /* 关于我们 文本内容放大 */
       #about .section-header {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         max-width: 100%;
       }
+      #about .section-header .section-title {
+        font-size: 2.4rem !important;
+      }
+      #about .section-header .section-subtitle {
+        font-size: 1.05rem !important;
+      }
+      #about .about-grid {
+        gap: 24px;
+      }
+      #about .about-content p {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        line-height: 1.65;
+      }
+      #about .about-card {
+        padding: 18px 22px;
+      }
+      #about .about-card-num {
+        font-size: 2.8rem;
+      }
+      #about .about-card-label {
+        font-size: 0.8rem;
+      }
+      #about .about-card-desc {
+        font-size: 0.75rem;
+      }
 
-      /* 团队照片 container 压缩 */
+      /* 团队照片 — 适当压缩以容纳全部内容 */
       .team-photo-item img {
-        max-height: 220px;
+        max-height: 150px;
         object-fit: contain;
       }
       .team-photo-label {
-        font-size: 0.7rem;
-        margin-top: 4px;
+        font-size: 0.68rem;
+        margin-top: 3px;
       }
 
       /* ========== 企业文化 ========== */
@@ -1351,6 +1368,7 @@
       #cases .section-header {
         min-height: 100vh;
         height: 100vh;
+        box-sizing: border-box;
         display: flex !important;
         flex-direction: column;
         align-items: center;
@@ -1431,53 +1449,64 @@
         white-space: nowrap;
       }
 
-      /* 案例卡片紧凑排版 */
+      /* 案例卡片放大排版 — 填满页面 */
       .cases-wrapper {
-        gap: 8px;
+        gap: 20px;
         max-width: 100%;
       }
       .case-card {
         page-break-inside: avoid;
       }
       .case-card-left {
-        grid-template-columns: 260px 1fr;
-      }
-      .case-card-left {
-        padding: 24px;
+        grid-template-columns: 320px 1fr;
+        padding: 32px;
       }
       .case-card-right {
-        padding: 24px 28px;
+        padding: 32px 38px;
       }
       .case-card-right h3 {
-        font-size: 1.2rem;
+        font-size: 1.55rem;
       }
       .case-meta {
-        margin-bottom: 12px;
-        font-size: 0.75rem;
+        margin-bottom: 16px;
+        font-size: 0.9rem;
       }
       .case-info-row {
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 14px;
+        margin-bottom: 14px;
       }
       .case-info-item {
-        padding: 8px 12px;
+        padding: 14px 18px;
+      }
+      .case-info-item h5 {
+        font-size: 0.82rem;
+        margin-bottom: 6px;
       }
       .case-info-item p {
-        font-size: 0.72rem;
+        font-size: 0.88rem;
+        line-height: 1.55;
       }
       .case-highlight {
-        padding: 8px 12px;
-        margin-bottom: 10px;
+        padding: 14px 18px;
+        margin-bottom: 14px;
+      }
+      .case-highlight h5 {
+        font-size: 0.82rem;
+        margin-bottom: 6px;
       }
       .case-highlight p {
-        font-size: 0.72rem;
+        font-size: 0.88rem;
+        line-height: 1.55;
       }
       .case-stats {
-        padding-top: 8px;
-        gap: 10px;
+        padding-top: 14px;
+        gap: 14px;
       }
       .case-stat-val {
-        font-size: 0.9rem;
+        font-size: 1.15rem;
+      }
+      .case-stat-lbl {
+        font-size: 0.78rem;
       }
 
       /* ========== 合作模式 + 为什么万维金控 — 融合一页 ========== */
