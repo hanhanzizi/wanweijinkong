@@ -1393,17 +1393,13 @@
       #culture .culture-grid {
         max-width: 100%;
         gap: 14px;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       #culture .value-item {
+        width: calc((100% - 28px) / 3);
         padding: 20px 14px 16px;
-      }
-      /* 底部两个卡片居中排版 */
-      #culture .value-item:nth-child(4) {
-        grid-column: 2;
-      }
-      #culture .value-item:nth-child(5) {
-        grid-column: 3;
       }
 
       /* ========== 团队优势 ========== */
