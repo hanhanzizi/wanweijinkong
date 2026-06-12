@@ -1204,52 +1204,109 @@
        打印样式
     ======================================== */
     @media print {
-      /* 隐藏导航栏 */
+      /* 页面边距 */
+      @page { margin: 12mm; }
+
+      /* 隐藏不需要的元素 */
       .navbar { display: none !important; }
 
-      /* === 关于我们 - 放大文字，拉大间距减少底部空白 === */
-      #about .section-header { margin-bottom: 28px; }
-      #about .about-grid { gap: 48px; }
-      #about .about-content p { font-size: 1.15rem; line-height: 2; }
-      #about .about-highlight { padding: 28px 32px; }
-      #about .about-highlight h4 { font-size: 1.15rem; }
-      #about .about-highlight p { font-size: 0.95rem; line-height: 1.9; }
-      #about .about-card { padding: 30px 20px; }
-      #about .about-card-num { font-size: 3.25rem; }
-      #about .about-card-label { font-size: 1rem; }
-      #about .about-card-desc { font-size: 0.85rem; }
-      #about .about-cards { gap: 24px; }
+      /* ===== 全局：所有 section 禁止内部跨页 ===== */
+      .section,
+      #hero,
+      .hero-stats {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
 
-      /* === 团队照片 - 统一最大宽度 + 往下移到页面居中 === */
-      /* 全员大图容器（#about第3个div子元素） */
+      /* ===== Hero 首屏：压缩适配一页 ===== */
+      #hero {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        min-height: auto !important;
+      }
+      #hero .hero-badge {
+        margin-bottom: 14px !important;
+        padding: 5px 14px !important;
+        font-size: 0.65rem !important;
+      }
+      #hero .hero-logo-main {
+        width: 55px !important;
+        height: 55px !important;
+        margin-bottom: 14px !important;
+      }
+      #hero .hero-title {
+        font-size: 2rem !important;
+        margin-bottom: 8px !important;
+        letter-spacing: 1px !important;
+      }
+      #hero .hero-title .en-sub {
+        font-size: 0.85rem !important;
+        margin-top: 2px !important;
+      }
+      #hero .hero-slogan {
+        font-size: 1rem !important;
+        margin-bottom: 10px !important;
+        letter-spacing: 3px !important;
+      }
+      #hero .hero-desc {
+        font-size: 0.8rem !important;
+        max-width: 520px !important;
+        margin-bottom: 16px !important;
+        line-height: 1.6 !important;
+      }
+      #hero .hero-actions { gap: 10px !important; }
+      #hero .hero-actions .btn {
+        padding: 8px 20px !important;
+        font-size: 0.78rem !important;
+      }
+      #hero .hero-stats {
+        gap: 28px !important;
+        margin-top: 18px !important;
+        padding: 12px 24px !important;
+      }
+      #hero .hero-stat-num {
+        font-size: 1.2rem !important;
+      }
+      #hero .hero-stat-label {
+        font-size: 0.6rem !important;
+      }
+
+      /* ===== 关于我们 ===== */
+      #about .section-header { margin-bottom: 18px; }
+      #about .about-grid { gap: 32px; }
+      #about .about-content p { font-size: 1rem; line-height: 1.75; }
+      #about .about-highlight { padding: 18px 22px; }
+      #about .about-highlight h4 { font-size: 1rem; }
+      #about .about-highlight p { font-size: 0.85rem; line-height: 1.7; }
+      #about .about-card { padding: 20px 16px; }
+      #about .about-card-num { font-size: 2.5rem; }
+      #about .about-card-label { font-size: 0.85rem; }
+      #about .about-card-desc { font-size: 0.75rem; }
+      #about .about-cards { gap: 16px; }
+
+      /* ===== 团队照片 ===== */
       #about > .fade-up:nth-of-type(3) {
-        max-width: 900px !important;
-        margin: 60px auto 40px auto !important;
+        max-width: 780px !important;
+        margin: 30px auto 24px auto !important;
         text-align: center !important;
-        width: auto !important;
       }
-      /* 项目团队图容器（#about第4个div子元素） */
       #about > .fade-up:nth-of-type(4) {
-        max-width: 900px !important;
-        margin: 36px auto 20px auto !important;
+        max-width: 780px !important;
+        margin: 20px auto 10px auto !important;
         text-align: center !important;
-        width: auto !important;
       }
-      /* 所有团队图片自适应宽度 */
       .team-photo-item img,
       #about .fade-up img {
         max-width: 100%;
         height: auto;
       }
-      /* 标签字号稍大 */
-      .team-photo-label {
-        font-size: 0.9rem !important;
-      }
+      .team-photo-label { font-size: 0.8rem !important; }
 
-      /* 全局减少section上下空白 */
+      /* ===== 全局 section 间距 ===== */
       .section {
-        padding-top: 24px !important;
-        padding-bottom: 24px !important;
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+        min-height: auto !important;
       }
     }
 
