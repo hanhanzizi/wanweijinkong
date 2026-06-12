@@ -1211,26 +1211,24 @@
       /* ---------- 全局 ---------- */
       *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
       body { background: white !important; color: #1a1a1a !important; }
-      .navbar, .hero-deco { display: none !important; }
+      .navbar { display: none !important; }
 
       /* ── 分页策略：每个板块独占一页 ── */
       .section { page-break-before: always !important; break-before: always !important; }
       #hero     { page-break-before: auto !important; break-before: auto !important; }
 
-      /* 实战案例标题页独占一页，后跟案例卡片各占一页 */
-      #cases .section-header {
-        page-break-before: always !important;
-        break-before: always !important;
-        page-break-after: always !important;
-        break-after: always !important;
-      }
+      /* 案例内每个卡片独占一页 */
       #cases .case-card {
         page-break-before: always !important;
         break-before: always !important;
       }
+      #cases .case-card:first-of-type {
+        page-break-before: auto !important;
+        break-before: auto !important;
+      }
 
       /* 合作模式+为什么选我们 各自一页 */
-      #cooperation .section { page-break-before: always !important; break-before: always !important; }
+      #cooperation .section-header { page-break-after: avoid !important; }
       .coop-models { break-after: avoid !important; }
       .coop-why { page-break-before: always !important; break-before: always !important; }
 
@@ -1241,189 +1239,189 @@
         page-break-inside: avoid !important;
       }
 
-      /* ── 通用 Section — 顶部对齐让内容自然分布 ── */
+      /* ── 通用 Section 填满页面 ── */
       .section {
-        padding: 8mm 12mm !important;
+        padding: 14mm 8mm !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
       }
 
       /* ── 通用 Section Header ── */
-      .section-header { margin-bottom: 6mm !important; }
-      .section-tag    { font-size: 11pt !important; margin-bottom: 1mm !important; }
-      .section-title  { font-size: 24pt !important; margin-bottom: 1mm !important; }
-      .section-subtitle { font-size: 12pt !important; }
+      .section-header { margin-bottom: 10mm !important; }
+      .section-tag    { font-size: 11pt !important; margin-bottom: 2mm !important; }
+      .section-title  { font-size: 28pt !important; margin-bottom: 2mm !important; }
+      .section-subtitle { font-size: 13pt !important; }
 
       /* ================================================================
-         Hero 首屏 — 填满横版第一页，无左右大空白
+         Hero 首屏 — 填满横版第一页
          ================================================================ */
       #hero {
-        padding: 10mm 16mm !important;
+        padding: 12mm 12mm !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
         text-align: center !important;
         min-height: auto !important;
-        background: white !important;
       }
       #hero .hero-badge {
         font-size: 11pt !important;
-        padding: 5px 22px !important;
-        margin-bottom: 5mm !important;
-        border: 1.5px solid #1565c0 !important;
-        border-radius: 20px !important;
-        color: #1565c0 !important;
-        background: transparent !important;
+        padding: 5px 20px !important;
+        margin-bottom: 6mm !important;
       }
       #hero .hero-logo-main {
         width: 90px !important;
         height: 90px !important;
-        margin-bottom: 5mm !important;
+        margin-bottom: 6mm !important;
       }
       #hero .hero-title {
         font-size: 38pt !important;
-        margin-bottom: 2mm !important;
+        margin-bottom: 3mm !important;
         line-height: 1.2 !important;
         letter-spacing: 2px !important;
       }
       #hero .hero-title .en-sub {
         font-size: 15pt !important;
-        margin-top: 1mm !important;
+        margin-top: 2mm !important;
         display: block !important;
-        color: #777 !important;
       }
       #hero .hero-slogan {
         font-size: 18pt !important;
-        margin-bottom: 4mm !important;
+        margin-bottom: 5mm !important;
         letter-spacing: 5px !important;
       }
       #hero .hero-desc {
         font-size: 12pt !important;
-        max-width: 85% !important;
-        margin-bottom: 6mm !important;
+        max-width: 70% !important;
+        margin-bottom: 7mm !important;
         line-height: 1.7 !important;
       }
       #hero .hero-actions { gap: 4mm !important; }
       #hero .btn {
-        padding: 9px 30px !important;
+        padding: 9px 32px !important;
         font-size: 12pt !important;
       }
       #hero .hero-stats {
         gap: 10mm !important;
-        margin-top: 7mm !important;
-        padding: 5mm 14mm !important;
-        border-top: 1.5px solid #e0e0e0 !important;
-        border-bottom: 1.5px solid #e0e0e0 !important;
+        margin-top: 8mm !important;
+        padding: 6mm 14mm !important;
+        background: #f7f9fc !important;
+        border-radius: 8px !important;
         display: flex !important;
         flex-wrap: wrap !important;
         justify-content: center !important;
-        background: transparent !important;
-        border-radius: 0 !important;
       }
-      #hero .hero-stat-num  { font-size: 22pt !important; color: #1565c0 !important; }
+      #hero .hero-stat-num  { font-size: 22pt !important; }
       #hero .hero-stat-label { font-size: 10pt !important; }
 
       /* ================================================================
-         关于我们 — 文本+数据卡片一页，照片独占一页(全员+项目团队合并)
+         关于我们 — 文本 + 数据卡片页
          ================================================================ */
-      #about { justify-content: flex-start !important; }
       #about .about-grid {
-        gap: 4mm !important;
+        gap: 8mm !important;
         grid-template-columns: 1fr !important;
         max-width: 100% !important;
       }
       #about .about-content p {
-        font-size: 10pt !important;
-        line-height: 1.6 !important;
-        margin-bottom: 2mm !important;
+        font-size: 12pt !important;
+        line-height: 1.8 !important;
+        margin-bottom: 4mm !important;
       }
       #about .about-highlight {
-        padding: 3mm 8mm !important;
+        padding: 6mm 8mm !important;
         border-left: 4px solid #1565c0 !important;
-        margin: 3mm 0 !important;
+        margin: 5mm 0 !important;
       }
-      #about .about-highlight h4 { font-size: 11pt !important; margin-bottom: 1mm !important; }
-      #about .about-highlight p  { font-size: 10pt !important; line-height: 1.5 !important; }
+      #about .about-highlight h4 { font-size: 13pt !important; margin-bottom: 2mm !important; }
+      #about .about-highlight p  { font-size: 11pt !important; line-height: 1.7 !important; }
       #about .about-cards {
-        gap: 4mm !important;
+        gap: 5mm !important;
         grid-template-columns: repeat(4, 1fr) !important;
-        margin-top: 2mm !important;
+        margin-top: 5mm !important;
       }
-      #about .about-card       { padding: 4mm 4mm !important; }
-      #about .about-card-num   { font-size: 24pt !important; margin-bottom: 1mm !important; }
-      #about .about-card-label { font-size: 11pt !important; margin-bottom: 1mm !important; }
-      #about .about-card-desc  { font-size: 8pt !important; line-height: 1.4 !important; }
+      #about .about-card       { padding: 6mm 5mm !important; }
+      #about .about-card-num   { font-size: 30pt !important; margin-bottom: 2mm !important; }
+      #about .about-card-label { font-size: 12pt !important; margin-bottom: 1mm !important; }
+      #about .about-card-desc  { font-size: 9pt !important; line-height: 1.5 !important; }
 
-      /* 团队照片 — 全员+项目团队合并一页 */
-      #about > .fade-up:nth-of-type(3) {
+      /* ================================================================
+         团队照片 — 独占一页（从 About 分离）
+         ================================================================ */
+      #about > .fade-up:nth-of-type(3),
+      #about > .fade-up:nth-of-type(4) {
         page-break-before: always !important;
         break-before: always !important;
+      }
+      #about > .fade-up:nth-of-type(3) {
         max-width: 100% !important;
         width: 100% !important;
         margin: 0 auto !important;
         text-align: center !important;
-        padding: 3mm 6mm !important;
+        padding: 8mm 4mm !important;
       }
       #about > .fade-up:nth-of-type(4) {
-        page-break-before: auto !important;
-        break-before: auto !important;
         max-width: 100% !important;
         width: 100% !important;
         margin: 0 auto !important;
         text-align: center !important;
-        padding: 2mm 6mm !important;
+        padding: 8mm 4mm !important;
+        page-break-before: always !important;
+        break-before: always !important;
       }
       .team-photo-item img,
       #about .fade-up img {
         max-width: 100% !important;
         height: auto !important;
-        max-height: 50mm !important;
       }
-      .team-photo-label { font-size: 10pt !important; margin-top: 2mm !important; }
-      .team-photo-grid { margin-bottom: 6px !important; gap: 8px !important; }
-      #about > .fade-up:nth-of-type(3) p { margin-top: 6px !important; font-size: 0.75rem !important; }
+      .team-photo-label { font-size: 12pt !important; margin-top: 4mm !important; }
 
       /* ================================================================
-         实战案例 标题页 — 独占一页，有设计感
+         企业文化 — 5 大价值观填满一页
          ================================================================ */
-      #cases .section-header {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+      #culture .section { padding: 10mm 6mm !important; }
+      .culture-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 5mm !important;
+      }
+      .value-item {
+        padding: 8mm 5mm !important;
         text-align: center !important;
-        padding: 20mm 12mm !important;
-        margin: 0 !important;
-        min-height: 170mm !important;
-        border: 3px solid #1565c0 !important;
-        border-radius: 4px !important;
       }
-      #cases .section-tag {
-        font-size: 14pt !important;
-        margin-bottom: 8mm !important;
-        color: #1565c0 !important;
-        letter-spacing: 6px !important;
-        text-transform: uppercase !important;
-      }
-      #cases .section-title {
-        font-size: 48pt !important;
-        margin-bottom: 8mm !important;
-        color: #0d47a1 !important;
-        letter-spacing: 10px !important;
-      }
-      #cases .section-subtitle {
-        font-size: 16pt !important;
-        color: #555 !important;
-        letter-spacing: 4px !important;
-        border-top: 1px solid #ccc !important;
-        padding-top: 8mm !important;
-        max-width: 80% !important;
-      }
+      .value-num  { font-size: 14pt !important; margin-bottom: 2mm !important; }
+      .value-icon { font-size: 32pt !important; margin-bottom: 4mm !important; }
+      .value-item h4 { font-size: 14pt !important; margin-bottom: 3mm !important; }
+      .value-quote   { font-size: 10pt !important; margin-bottom: 4mm !important; font-style: italic !important; }
+      .value-desc    { font-size: 10pt !important; line-height: 1.6 !important; }
 
-      /* 实战案例卡片 — 每个案例独占一页 */
-      #cases .section { padding: 6mm 8mm !important; justify-content: center !important; }
+      /* ================================================================
+         团队优势 — 4 项填满一页
+         ================================================================ */
+      #team .section { padding: 10mm 8mm !important; }
+      .team-container { padding: 0 !important; }
+      .team-intro {
+        font-size: 12pt !important;
+        margin-bottom: 8mm !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+      }
+      .team-highlights {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6mm !important;
+      }
+      .th-item {
+        padding: 8mm 6mm !important;
+        text-align: center !important;
+      }
+      .th-icon     { font-size: 32pt !important; margin-bottom: 4mm !important; }
+      .th-item h4  { font-size: 14pt !important; margin-bottom: 3mm !important; }
+      .th-item p   { font-size: 10pt !important; line-height: 1.6 !important; }
+
+      /* ================================================================
+         实战案例 — 每个案例独占一页横版
+         ================================================================ */
+      #cases .section-header { margin-bottom: 5mm !important; }
+      #cases .section { padding: 6mm 6mm !important; }
       .case-card {
         grid-template-columns: 45% 55% !important;
         border-radius: 8px !important;
@@ -1431,7 +1429,7 @@
         min-height: 0 !important;
       }
       .case-card-left {
-        min-height: 135mm !important;
+        min-height: 130mm !important;
         display: flex !important;
         align-items: stretch !important;
       }
@@ -1441,117 +1439,61 @@
         height: 100% !important;
       }
       .case-card-right {
-        padding: 8mm 10mm !important;
+        padding: 10mm 12mm !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
       }
       .case-card-right h3 {
-        font-size: 20pt !important;
-        margin-bottom: 2mm !important;
+        font-size: 22pt !important;
+        margin-bottom: 3mm !important;
       }
       .case-tag {
-        font-size: 9pt !important;
-        padding: 2px 10px !important;
-        margin-bottom: 2mm !important;
+        font-size: 10pt !important;
+        padding: 3px 12px !important;
+        margin-bottom: 3mm !important;
       }
-      .case-divider { margin: 3mm 0 !important; }
+      .case-divider { margin: 5mm 0 !important; }
       .case-detail {
-        font-size: 9pt !important;
-        margin-bottom: 2mm !important;
-        line-height: 1.5 !important;
-      }
-      .case-detail strong { font-size: 9pt !important; }
-      .case-detail-row {
-        font-size: 9pt !important;
-        line-height: 1.5 !important;
-      }
-      .case-meta { font-size: 9pt !important; margin-bottom: 2mm !important; }
-      .case-info-row { gap: 3mm !important; }
-      .case-info-item h5 { font-size: 10pt !important; margin-bottom: 1mm !important; }
-      .case-info-item p  { font-size: 8pt !important; line-height: 1.4 !important; }
-      .case-highlight h5 { font-size: 10pt !important; margin-bottom: 1mm !important; }
-      .case-highlight p  { font-size: 8pt !important; line-height: 1.4 !important; }
-      .case-stats { gap: 4mm !important; margin-top: 3mm !important; }
-      .case-stat-val { font-size: 16pt !important; }
-      .case-stat-lbl { font-size: 8pt !important; }
-      .case-amount { padding: 8mm 6mm !important; }
-      .amount-num { font-size: 1.4rem !important; }
-      .case-info-item.green p { font-size: 8pt !important; }
-
-      /* ================================================================
-         企业文化 — 5 大价值观填满一页
-         ================================================================ */
-      #culture .section { padding: 8mm 10mm !important; justify-content: center !important; }
-      .culture-grid {
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: 4mm !important;
-      }
-      .value-item {
-        padding: 6mm 4mm !important;
-        text-align: center !important;
-      }
-      .value-num  { font-size: 13pt !important; margin-bottom: 1mm !important; }
-      .value-icon { font-size: 28pt !important; margin-bottom: 3mm !important; }
-      .value-item h4 { font-size: 13pt !important; margin-bottom: 2mm !important; }
-      .value-quote   { font-size: 9pt !important; margin-bottom: 2mm !important; font-style: italic !important; }
-      .value-desc    { font-size: 9pt !important; line-height: 1.5 !important; }
-
-      /* ================================================================
-         团队优势 — 4 项填满一页
-         ================================================================ */
-      #team .section { padding: 8mm 12mm !important; justify-content: center !important; }
-      .team-container { padding: 0 !important; }
-      .team-intro {
         font-size: 11pt !important;
-        margin-bottom: 6mm !important;
+        margin-bottom: 3mm !important;
         line-height: 1.7 !important;
-        text-align: center !important;
       }
-      .team-highlights {
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 5mm !important;
+      .case-detail strong { font-size: 11pt !important; }
+      .case-detail-row {
+        font-size: 11pt !important;
+        line-height: 1.7 !important;
       }
-      .th-item {
-        padding: 6mm 5mm !important;
-        text-align: center !important;
-      }
-      .th-icon     { font-size: 28pt !important; margin-bottom: 3mm !important; }
-      .th-item h4  { font-size: 13pt !important; margin-bottom: 2mm !important; }
-      .th-item p   { font-size: 9pt !important; line-height: 1.5 !important; }
 
       /* ================================================================
-         合作模式 + 为什么选我们
+         合作模式 — 4 种模式填满一页
          ================================================================ */
-      #cooperation .section { padding: 8mm 10mm !important; justify-content: center !important; }
+      #cooperation .section { padding: 10mm 6mm !important; }
       .coop-models {
         grid-template-columns: repeat(4, 1fr) !important;
-        gap: 5mm !important;
+        gap: 6mm !important;
       }
       .coop-card {
-        padding: 6mm 5mm !important;
+        padding: 8mm 6mm !important;
         text-align: center !important;
       }
       .coop-letter {
-        width: 38px !important;
-        height: 38px !important;
-        font-size: 18pt !important;
-        margin-bottom: 3mm !important;
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 20pt !important;
+        margin-bottom: 4mm !important;
       }
-      .coop-card h4 { font-size: 13pt !important; margin-bottom: 2mm !important; }
-      .coop-sub      { font-size: 9pt !important; margin-bottom: 2mm !important; }
+      .coop-card h4 { font-size: 14pt !important; margin-bottom: 2mm !important; }
+      .coop-sub      { font-size: 10pt !important; margin-bottom: 3mm !important; }
       .coop-card p:last-child {
-        font-size: 8pt !important;
-        line-height: 1.4 !important;
+        font-size: 9pt !important;
+        line-height: 1.6 !important;
       }
 
       /* 为什么选我们 — 独占一页 */
       .coop-why {
         margin-top: 0 !important;
-        padding: 12mm 14mm !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
+        padding: 10mm 10mm !important;
       }
       .coop-why h3 {
         font-size: 22pt !important;
@@ -1561,37 +1503,23 @@
       .why-grid { gap: 6mm !important; }
       .why-item  { gap: 5mm !important; align-items: flex-start !important; }
       .why-num {
-        width: 34px !important;
-        height: 34px !important;
+        width: 36px !important;
+        height: 36px !important;
         font-size: 14pt !important;
         flex-shrink: 0 !important;
       }
       .why-item h4 { font-size: 13pt !important; margin-bottom: 1mm !important; }
-      .why-item p  { font-size: 10pt !important; line-height: 1.5 !important; }
+      .why-item p  { font-size: 10pt !important; line-height: 1.6 !important; }
 
       /* ================================================================
-         页脚 — 填满最后一页
+         页脚
          ================================================================ */
-      #contact {
-        padding: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        text-align: center !important;
-      }
-      .contact-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      .contact-logo-area img { width: 70px !important; height: 70px !important; }
-      .contact-brand-name { font-size: 28pt !important; margin: 5mm 0 2mm !important; }
-      .contact-brand-sub  { font-size: 12pt !important; color: #888 !important; margin-bottom: 3mm !important; }
-      .contact-slogan { font-size: 16pt !important; margin: 3mm 0 8mm !important; }
-      .footer-bottom  { margin-top: 10mm !important; font-size: 10pt !important; }
-      .footer-values  { margin-top: 2mm !important; font-size: 9pt !important; color: #999 !important; }
+      #contact { padding: 12mm 8mm !important; }
+      .contact-logo-area img { width: 60px !important; height: 60px !important; }
+      .contact-brand-name { font-size: 24pt !important; }
+      .contact-brand-sub  { font-size: 11pt !important; }
+      .contact-slogan { font-size: 14pt !important; margin: 3mm 0 !important; }
+      .footer-bottom  { margin-top: 5mm !important; font-size: 9pt !important; }
     }
   </style>
 </head>
